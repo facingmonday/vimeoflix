@@ -1,0 +1,10 @@
+.container{
+    display: block;
+}
+
+.imageContainer{
+    display: inline-block;
+}
+.infoContainer{
+    display: inline-block;
+}

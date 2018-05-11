@@ -1,0 +1,4 @@
+.description {
+    composes: globalText from global;
+    font-size: 1em;
+}

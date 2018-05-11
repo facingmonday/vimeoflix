@@ -1,0 +1,6 @@
+{
+    "name": "ChannelThumb",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./ChannelThumb.js"
+}

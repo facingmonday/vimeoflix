@@ -1,0 +1,6 @@
+{
+    "name": "player-controls",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./PlayerControls.js"
+}

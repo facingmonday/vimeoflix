@@ -1,0 +1,6 @@
+{
+    "name": "VimeoPlayer",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./VimeoPlayer.js"
+}

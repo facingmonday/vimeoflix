@@ -1,0 +1,9 @@
+html, body {
+    background: #EEE;
+}
+.app {
+    display: block;
+    margin: 0px 100px;
+    padding: 0px;
+    
+}

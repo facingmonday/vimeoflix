@@ -1,0 +1,4 @@
+.button {
+    composes: globalButton from global;
+    color: red;
+}
