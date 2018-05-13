@@ -7,7 +7,7 @@ Demo application showing how to use React, Redux, and CSS Modules to create a Vi
 Visit vimeoflix.facingmonday.com or 
 
 ```
-git clone
+git clone https://github.com/facingmonday/vimeoflix.git
 cd vimeoflix
 yarn install
 yarn serve
