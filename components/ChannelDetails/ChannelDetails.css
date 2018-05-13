@@ -1,3 +1,15 @@
 .container{
 
 }
+
+.channelInfo{
+    display: flex;
+}
+
+.image{
+    flex: 30%;
+}
+
+.details {
+    flex: 70%
+}

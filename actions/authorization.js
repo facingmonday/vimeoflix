@@ -17,8 +17,8 @@ export function fetchAuthorizationSuccess(response) {
   }
 }
 
-export function fetchAuthorizationFailure(response) {
-  console.log('fetchAuthorizationFailure', response);
+export function fetchAuthorizationFailure(error) {
+  console.log('fetchAuthorizationFailure', error);
   return {
     type: ActionTypes.FETCH_AUTHORIZATION_FAILURE,
     payload: error

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import VideoThumbnail from '../VideoThumbnail';
 import * as VideoActions from '../../actions/video';
-
+import style from './VideoList.css';
 function mapStateToProps(state) {
     return {
         videoList: state.video.videoList
@@ -44,7 +44,7 @@ class VideoList extends Component {
             return "ERROR";
         } else if(videos && videos.length){
             return (
-                <div>
+                <div className={style.videoListContainer}>
                     { videos.map(this.renderVideo.bind(this)) }
                 </div>
             );

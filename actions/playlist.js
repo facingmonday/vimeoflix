@@ -22,6 +22,7 @@ export function clearPlaylist(){
 }
 
 export function playNext(){
+    console.log('playNextAction');
   return {
     type: ActionTypes.PLAY_NEXT
   }

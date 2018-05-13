@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import * as Actions from '../../actions/channel';
-
+import Loading from '../Loading';
 import ChannelThumb from '../ChannelThumb';
 import styles from './ChannelList.css';
 
@@ -16,11 +16,23 @@ class ChannelList extends Component {
         const { channels, error, loading } = this.props.channelList;
 
         if(loading){
-            return "Loading";
+            return (
+                <div>
+                    <Loading />
+                </div>
+            );
         } else if(error){
-            return "Error";
+            return (
+                <div>
+                    <Loading />
+                </div>
+            );
         } else if(!channels.length){
-            return "No data";
+            return (
+                <div>
+                    <p className={styles.noResults}>No search results to display</p>
+                </div>
+            );
         } else if(channels.length){
             return (
                 <div className={styles.channelListContainer}>

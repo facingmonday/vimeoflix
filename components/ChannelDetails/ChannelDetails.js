@@ -23,13 +23,14 @@ class ChannelDetails extends Component {
                 <div className={style.container}>
                     <div className={style.channelInfo}>
                         <div className={style.image}>
-                            <img src={channel.pictures.sizes[0].link} />
+                            <img src={channel.pictures.sizes[1].link} />
                         </div>
                         <div className={style.details}>
                             <h4 className={style.name}>{channel.name}</h4>
                             <p className={style.description}>{channel.description}</p>
                         </div>
                     </div>
+                    <h4 className={style.videoListHeader}>Videos</h4>
                     <div className={style.videoList}>
                         <VideoList channel={params.id} />
                     </div>

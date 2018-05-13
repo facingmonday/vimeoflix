@@ -6,6 +6,7 @@ import * as PlaylistActions from '../../actions/playlist';
 import * as VideoActions from '../../actions/video';
 import Header from '@/components/Header';
 import Main from '@/components/Main';
+import Loading from '../Loading';
 import style from './App.css';
 import '../../styles/index.css';
 
@@ -33,10 +34,30 @@ class App extends Component {
         ;
     }
     render() {
+        const { authorization, loading, error } = this.props.authorization;
         return (
-            <div className={style.app}>
-                <Header />
-                <Main />
+            <div>
+                {(()=>{
+                    if(loading){
+                        return <Loading size={"xl"}/>
+                    } else if(error){
+                        return (
+                            <div className={style.error}>
+                                <h4>
+                                    Oh no Vimeo! Something went wrong
+                                </h4>
+                                <p>{error}</p>
+                            </div>
+                        )
+                    } else if(authorization){
+                        return (
+                            <div className={style.app}>
+                                <Header />
+                                <Main />
+                            </div>
+                        );
+                    }
+                })()}
             </div>
         );
     }

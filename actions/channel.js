@@ -3,7 +3,6 @@ import { VIMEO_ClIENT_ID, VIMEO_CLIENT_SECRET} from '../config';
 import * as ActionTypes from '../actionTypes/channel';
 import { getCookie, setCookie, deleteCookie } from '../utils/cookie';
 
-//GET Enrollment Codes
 export function fetchChannelsLoading() {
     return {
         type: ActionTypes.FETCH_CHANNELS_LOADING

@@ -2,7 +2,6 @@ import axios from 'axios';
 import * as ActionTypes from '../actionTypes/video';
 import { getCookie, setCookie, deleteCookie } from '../utils/cookie';
 
-//GET Enrollment Codes
 export function fetchVideosLoading() {
   return {
     type: ActionTypes.FETCH_VIDEOS_LOADING
@@ -39,7 +38,6 @@ export function fetchVideos(options = {}) {
   };
 }
 
-//GET Enrollment Code
 export function fetchVideoLoading() {
   return {
     type: ActionTypes.FETCH_VIDEO_LOADING

@@ -10,8 +10,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        playNext: (video)=>{
-            dispatch(PlaylistActions.playNext(video));
+        playNext: ()=>{
+            dispatch(PlaylistActions.playNext());
         }
     };
 }

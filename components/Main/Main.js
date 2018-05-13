@@ -11,9 +11,9 @@ import VideoDetails from '../VideoDetails';
 //Style
 import style from './Main.css';
 
-
 class Main extends Component {
     render() {
+
         return (
             <div className={style.container}>
                 <div className={style.playerColumn}>

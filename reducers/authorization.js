@@ -21,7 +21,7 @@ import {
         case FETCH_AUTHORIZATION_SUCCESS:
           return { ...state, activeAuthorization: {authorization: action.payload, error:null, loading: false}};
         case FETCH_AUTHORIZATION_FAILURE:
-          error = action.payload || {message: action.payload.message};
+          error = action.payload.message;
           return { ...state, activeAuthorization: {authorization: null, error:error, loading:false}};
         case RESET_ACTIVE_AUTHORIZATION:
           return { ...state, activeAuthorization: {authorization: null, error:null, loading: false}};
