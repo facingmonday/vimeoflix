@@ -6,7 +6,7 @@ const initialState = {
     playlist: [],
     player: {
         video: null,
-        loading: null,
+        loading: true,
         error: null
     }
 };
@@ -34,7 +34,7 @@ export default (state = initialState, action) => {
         case PLAY_VIDEO:
             return {
                 playlist: state.playlist.filter(video=>video.uri != action.payload.uri), 
-                player: {...state.player, video: action.payload}
+                player: {...state.player, video: action.payload, loading: false}
             }
         case CLEAR_PLAYLIST:
             return {...state, playlist: []};

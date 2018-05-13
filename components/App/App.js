@@ -13,6 +13,7 @@ import '../../styles/index.css';
 class App extends Component {
     componentWillMount(){
         //Fetch the authorization token then preload the staff pics channels
+        //TODO(JMP) This is hacky. We can bootstrap better than this
         const _this = this;
         this.props
             .fetchAuthorization()

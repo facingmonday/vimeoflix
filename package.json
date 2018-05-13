@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node ./server.js",
     "build": "node ./node_modules/webpack/bin/webpack -p --progress --config webpack.config.js",
-    "gist": "find . ! \\( -type d -o -path './node_modules/*' -o -name '.*' -o -name '*yarn*' \\) -prune -print | paste -sd ' ' - | sed 's|\\./||g' | xargs gist -o -a",
+    "gist": "find . ! \\( -type d -o -path './node_modules/*' -o -name '.*' -o -name '*yarn*' \\) -prune -print | paste -sd ' ' - | sed 's|\\./||g' > gist.txt",
     "serve": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "submit": "yarn build && yarn gist"
   },
