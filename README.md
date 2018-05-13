@@ -18,7 +18,7 @@ $ open http://localhost:8080
 
 1. Was the question/problem clear? Did you feel like something was missing or not explained correctly?
 
-> 
+> Yeah, I pretty much knew what you wanted to see (hopefully)
 
 2. How much time did you spend on each part: understanding, designing, coding, testing?
 
