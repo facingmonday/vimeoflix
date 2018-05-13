@@ -5,26 +5,9 @@ import * as PlaylistActions from '../../actions/playlist';
 import VideoThumbnail from '../VideoThumbnail';
 import style from './Playlist.css';
 
-function mapStateToProps(state) {
-    return {
-        playlist: state.playlist.playlist
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        addToPlaylist: (video)=>{
-            dispatch(PlaylistActions.addToPlaylist(video));
-        },
-        playVideo: (video)=>{
-            dispatch(PlaylistActions.playVideo(video));
-        },
-        clearPlaylist: ()=>{
-            dispatch(PlaylistActions.clearPlaylist());
-        }
-    };
-}
-
+/**
+ * Show a list of video thumbnails
+ */
 class Playlist extends Component {
     constructor(props) {
         super(props);
@@ -64,6 +47,26 @@ class Playlist extends Component {
         }
         
     }
+}
+
+function mapStateToProps(state) {
+    return {
+        playlist: state.playlist.playlist
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        addToPlaylist: (video)=>{
+            dispatch(PlaylistActions.addToPlaylist(video));
+        },
+        playVideo: (video)=>{
+            dispatch(PlaylistActions.playVideo(video));
+        },
+        clearPlaylist: ()=>{
+            dispatch(PlaylistActions.clearPlaylist());
+        }
+    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Playlist);

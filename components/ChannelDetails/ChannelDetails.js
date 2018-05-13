@@ -8,7 +8,10 @@ import Loading from '../Loading';
 import style from './ChannelDetails.css';
 import VideoList from '../VideoList';
 
-
+/**
+ * Show the details for a channel along with a list
+ * of all the videos in that channgel
+ */
 class ChannelDetails extends Component {
     componentWillMount(){
         const { match: { params } } = this.props;

@@ -6,7 +6,9 @@ import Loading from '../Loading';
 import ChannelThumb from '../ChannelThumb';
 import style from './ChannelList.css';
 
-
+/**
+ * List the search results for channels base on a query
+ */
 class ChannelList extends Component {
     renderChannelThumb(channel, key){
         return <ChannelThumb {...channel.pictures.sizes[1]} uri={channel.uri} />

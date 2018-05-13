@@ -7,6 +7,11 @@ import styles from './SearchInput.css';
 //Constants
 const PLACEHOLDER_TEXT = "Search for channels";
 
+/**
+ * Input used to search for channels. Exists outside
+ * of the Router and just calls the fetchChannels action
+ * with query parameters.
+ */
 class SearchInput extends Component {
     constructor(props) {
         super(props);

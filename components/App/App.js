@@ -10,10 +10,16 @@ import Loading from '../Loading';
 import style from './App.css';
 import '../../styles/index.css';
 
+/**
+ * Demo application showing how to use React, Redux, and CSS 
+ * Modules to create a Vimeo client app.
+ */
 class App extends Component {
+    /**
+     * Fetch the authorization token then preload the staff pics channels
+     * TODO(JMP) This is hacky. We can bootstrap better than this
+     */
     componentWillMount(){
-        //Fetch the authorization token then preload the staff pics channels
-        //TODO(JMP) This is hacky. We can bootstrap better than this
         const _this = this;
         this.props
             .fetchAuthorization()

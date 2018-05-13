@@ -5,24 +5,10 @@ import VideoThumbnail from '../VideoThumbnail';
 import Loading from '../Loading';
 import * as VideoActions from '../../actions/video';
 import style from './VideoList.css';
-function mapStateToProps(state) {
-    return {
-        videoList: state.video.videoList
-    };
-}
-function mapDispatchToProps(dispatch) {
-    return {
-        fetchVideos: (channelId)=>{
-            dispatch(VideoActions.fetchVideos({channel: channelId}))
-                .then((response) => {
-                    !response.error 
-                    ? dispatch(VideoActions.fetchVideosSuccess(response.payload.data))
-                    : dispatch(VideoActions.fetchVideosFailure(response.error));
-            });
-        }
-    };
-}
 
+/**
+ * List of video thumbnails.
+ */
 class VideoList extends Component {
     constructor(props) {
         super(props);
@@ -51,6 +37,24 @@ class VideoList extends Component {
             );
         } else return "No videos to list";
     }
+}
+
+function mapStateToProps(state) {
+    return {
+        videoList: state.video.videoList
+    };
+}
+function mapDispatchToProps(dispatch) {
+    return {
+        fetchVideos: (channelId)=>{
+            dispatch(VideoActions.fetchVideos({channel: channelId}))
+                .then((response) => {
+                    !response.error 
+                    ? dispatch(VideoActions.fetchVideosSuccess(response.payload.data))
+                    : dispatch(VideoActions.fetchVideosFailure(response.error));
+            });
+        }
+    };
 }
 
 export default connect(

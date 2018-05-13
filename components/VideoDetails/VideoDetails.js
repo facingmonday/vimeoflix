@@ -5,25 +5,9 @@ import * as VideoActions from '../../actions/video';
 import style from './VideoDetails.css';
 import AddToPlaylist from '../Buttons/AddToPlaylist';
 
-function mapStateToProps(state) {
-    return {
-        video: state.video.activeVideo
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        fetchVideo: (id)=>{
-            dispatch(VideoActions.fetchVideo(id))
-                .then((response) => {
-                    !response.error 
-                    ? dispatch(VideoActions.fetchVideoSuccess(response.payload.data))
-                    : dispatch(VideoActions.fetchVideoFailure(response.error));
-            });
-        }
-    };
-}
-
+/**
+ * Show the details for a video with an add to playlist button
+ */
 class VideoDetails extends Component {
     componentWillMount(){
         const { match: { params }} = this.props;
@@ -58,6 +42,25 @@ class VideoDetails extends Component {
         }
 
     }
+}
+
+function mapStateToProps(state) {
+    return {
+        video: state.video.activeVideo
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        fetchVideo: (id)=>{
+            dispatch(VideoActions.fetchVideo(id))
+                .then((response) => {
+                    !response.error 
+                    ? dispatch(VideoActions.fetchVideoSuccess(response.payload.data))
+                    : dispatch(VideoActions.fetchVideoFailure(response.error));
+            });
+        }
+    };
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(VideoDetails));

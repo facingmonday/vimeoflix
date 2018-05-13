@@ -7,20 +7,9 @@ import * as PlaylistActions from '../../actions/playlist';
 import Loading from '../Loading';
 import style from './VimeoPlayer.css';
 
-function mapStateToProps(state) {
-    return {
-        playerModel: state.playlist.player
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        playNext: ()=>{
-            dispatch(PlaylistActions.playNext());
-        }
-    };
-}
-
+/**
+ * React implementation of a vimeo player.
+ */
 class VimeoPlayer extends Component {
     constructor(props) {
         super(props);
@@ -35,6 +24,11 @@ class VimeoPlayer extends Component {
         this.autoplay = true;
         this.props.playNext();
     }
+    /**
+     * When the props are updated for the component.
+     * If the player had not been setup, do that, then
+     * load the video passed in with props.
+     */
     componentDidUpdate(){
         const { video, loading, error} = this.props.playerModel;
         if(!this.player){
@@ -74,6 +68,21 @@ class VimeoPlayer extends Component {
         );
         
     }
+}
+
+
+function mapStateToProps(state) {
+    return {
+        playerModel: state.playlist.player
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        playNext: ()=>{
+            dispatch(PlaylistActions.playNext());
+        }
+    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(VimeoPlayer);
