@@ -21,7 +21,6 @@ class App extends Component {
             })
             .then(()=>{
                 if(_this.props.videos && this.props.videos.length){
-                    console.log('Im here');
                     let first = _this.props.videos.shift();
                     this.props.playVideo(first);
 
@@ -39,7 +38,7 @@ class App extends Component {
             <div>
                 {(()=>{
                     if(loading){
-                        return <Loading size={"xl"}/>
+                        return <Loading text={"Vimeo"} size={"xl"}/>
                     } else if(error){
                         return (
                             <div className={style.error}>
@@ -82,7 +81,6 @@ const mapDispatchToProps = (dispatch) => {
         fetchChannel: (channelId)=>{
             dispatch(ChannelActions.fetchChannel(channelId))
                 .then((response) => {
-                    console.log('fetchChannel response', response);
                     !response.error 
                     ? dispatch(ChannelActions.fetchChannelSuccess(response.payload.data))
                     : dispatch(ChannelActions.fetchChannelFailure(response.error));

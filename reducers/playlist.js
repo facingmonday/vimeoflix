@@ -21,7 +21,6 @@ export default (state = initialState, action) => {
             return {...state, playlist: state.playlist.filter(video=>video.uri != action.payload)};
             break;
         case PLAY_NEXT:
-            console.log('PLAYNEXT')
             let video = state.playlist.slice(0,1)[0];
             return {
                 ...state,

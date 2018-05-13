@@ -2,3 +2,17 @@
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #333;
 }
+
+:global .heading {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #333;
+    margin: 5px 0px;
+}
+
+:global .twoThirdsText {
+    display:flex;
+    flex: 70%;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 10px;
+}

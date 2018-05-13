@@ -45,7 +45,6 @@ export function fetchVideoLoading() {
 }
 
 export function fetchVideoSuccess(activeVideo) {
-  console.log('activeVideo', activeVideo);
   return {
     type: ActionTypes.FETCH_VIDEO_SUCCESS,
     payload: activeVideo

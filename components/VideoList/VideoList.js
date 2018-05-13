@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import VideoThumbnail from '../VideoThumbnail';
+import Loading from '../Loading';
 import * as VideoActions from '../../actions/video';
 import style from './VideoList.css';
 function mapStateToProps(state) {
@@ -31,15 +32,15 @@ class VideoList extends Component {
     }
     renderVideo(video, index){
         return (
-            <Link to={video.uri}>
-                <VideoThumbnail video={video}/>
+            <Link key={video.uri} to={video.uri}>
+                <VideoThumbnail video={video} />
             </Link>
         );
     }
     render() {
         const { videos, loading, error } = this.props.videoList;
         if(loading){
-            return "Loading";
+            return <Loading text={"Loading Videos for Channel"}/>;
         } else if(error){
             return "ERROR";
         } else if(videos && videos.length){

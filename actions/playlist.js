@@ -1,7 +1,6 @@
 import * as ActionTypes from '../actionTypes/playlist';
 
 export function addToPlaylist(video){
-    console.log('video', video);
   return {
     type: ActionTypes.ADD_TO_PLAYLIST,
     payload: video
@@ -22,7 +21,6 @@ export function clearPlaylist(){
 }
 
 export function playNext(){
-    console.log('playNextAction');
   return {
     type: ActionTypes.PLAY_NEXT
   }

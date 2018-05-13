@@ -44,7 +44,12 @@ class VideoDetails extends Component {
                     </div>
                     <div className={style.infoContainer}>
                         <h4>{video.name}</h4>
-                        <AddToPlaylist video={video} />
+                        <p>{video.description}</p>
+                        <div className={style.controls}>
+                            <AddToPlaylist video={video} />
+                            <a className={style.button} onClick={this.props.history.goBack}>Back to Channel</a>
+                        </div>
+                        
                     </div>
                 </div>
             )

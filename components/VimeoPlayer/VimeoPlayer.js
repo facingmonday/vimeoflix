@@ -9,7 +9,6 @@ import style from './VimeoPlayer.css';
 
 function mapStateToProps(state) {
     return {
-        playlist: state.playlist.playlist,
         playerModel: state.playlist.player
     };
 }
@@ -17,7 +16,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         playNext: ()=>{
-            console.log('PlaylistActions.playNext',PlaylistActions.playNext);
             dispatch(PlaylistActions.playNext());
         }
     };
@@ -34,13 +32,12 @@ class VimeoPlayer extends Component {
 
     }
     onEnded(){
-        console.log('onEnded', this);
         this.autoplay = true;
         this.props.playNext();
     }
     componentDidUpdate(){
         const { video, loading, error} = this.props.playerModel;
-        
+        console.log('video', video);
         if(!this.player){
             this.player = new Player('vimeo_player', {
                 id: video.uri.split("/videos/")[1],
@@ -71,7 +68,7 @@ class VimeoPlayer extends Component {
         const { video, loading, error} = this.props.playerModel;
         return (
             <div>
-                {(!video)?(<div className={style.loading}><Loading /></div>): null}
+                {(loading)?(<div className={style.loading}><Loading /></div>): null}
                 <div className={style.vimeo_player} id="vimeo_player"></div>
                 {(video)? this.renderVideoDetails(video):null}
             </div>

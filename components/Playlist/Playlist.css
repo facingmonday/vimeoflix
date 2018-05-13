@@ -1,8 +1,29 @@
 .playlist {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     text-align: center;
-    max-height: 800px;
+    max-height: 600px;
     overflow: scroll;
 }
 .empty {
     composes: globalText from global;
+    text-align: center;
+}
+.playlistControls {
+    height: 20px;
+    text-align: center;
+}
+.playlistControls a{
+    font-size: .5em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+}
+@media (max-width:768px) {
+    .playlist {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
 }

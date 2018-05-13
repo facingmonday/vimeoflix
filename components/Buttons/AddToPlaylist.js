@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import * as PlaylistActions from '../../actions/playlist';
+import style from './Button.css';
+
 function mapStateToProps(state) {
     return {
-        playlist: state.playlist
+        playlist: state.playlist.playlist
     };
 }
 
@@ -18,14 +20,15 @@ function mapDispatchToProps(dispatch) {
 
 class AddToPlaylist extends Component {
     onClick(e){
-        this.props.addToPlaylist(this.props.video);
+        if(this.props.video){
+            this.props.addToPlaylist(this.props.video);
+        }
         this.props.history.push("/")
     }
     render() {
-        console.log('AddToPlaylist.props', this.props);
         return (
-            <div>
-                <button onClick={this.onClick.bind(this)}>Add to Playlist</button>
+            <div className={style.container}>
+                <a className={style.button} onClick={this.onClick.bind(this)}>Add to Playlist</a>
             </div>
         );
     }

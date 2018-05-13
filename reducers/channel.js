@@ -38,7 +38,6 @@ import {
         case FETCH_CHANNELS_LOADING:
           return { ...state, channelList: {channels:[], error: null, loading: true} }; 
         case FETCH_CHANNELS_SUCCESS:// return list of posts and make loading = false
-          console.log('action.payload', action.payload);
           return { ...state, channelList: { channels: action.payload.data, ...action.payload, error:null, loading: false} };
         case FETCH_CHANNELS_FAILURE:// return error and make loading = false
           error = action.payload || {message: action.payload.message};
@@ -57,36 +56,6 @@ import {
           return { ...state, activeChannel: {channel: null, error:error, loading:false}};
         case RESET_ACTIVE_CHANNEL:
           return { ...state, activeChannel: {channel: null, error:null, loading: false}};
-  
-        case CREATE_CHANNEL:
-          return {...state, newChannel: { ...state.newChannel, loading: true}};
-        case CREATE_CHANNEL_SUCCESS:
-          return {...state, newChannel: { channel: action.payload, error:null, loading: false}}
-        case CREATE_CHANNEL_FAILURE:
-          error = action.payload || { message: action.payload.message};
-          return {...state, newChannel: { channel: null, error: error, loading: false}}
-        case RESET_NEW_CHANNEL:
-          return {...state,  newChannel:{channel: null, error: null, loading: false}}
-  
-        case UPDATE_CHANNEL:
-          return {...state, activeChannel: { ...state.activeChannel, loading: true}};
-        case UPDATE_CHANNEL_SUCCESS:
-          return {...state, activeChannel: { channel: action.payload, error:null, loading: false}}
-        case UPDATE_CHANNEL_FAILURE:
-          error = action.payload || { message: action.payload.message};
-          return {...state, activeChannel: { channel: null, error: error, loading: false}}
-        
-  
-        case DELETE_CHANNEL:
-          return { ...state, deletedPost: { ...state.deletedPost, loading: true}};
-        case DELETE_CHANNEL_SUCCESS:
-          return { ...state, deletedChannel: {channel: action.payload, error: null, loading: false}};
-        case DELETE_CHANNEL_FAILURE:
-          error = action.payload || {message: action.payload.message};
-          return {...state, deletedChannel: {channel:null, error:error, loading: false}}
-        case RESET_DELETED_CHANNEL:
-          return {...state,  deletedChannel:{channel:null, error:null, loading: false}}
-        
         
         default:
           return state;

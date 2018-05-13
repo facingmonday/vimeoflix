@@ -18,7 +18,6 @@ export function fetchAuthorizationSuccess(response) {
 }
 
 export function fetchAuthorizationFailure(error) {
-  console.log('fetchAuthorizationFailure', error);
   return {
     type: ActionTypes.FETCH_AUTHORIZATION_FAILURE,
     payload: error
@@ -30,7 +29,7 @@ export function fetchAuthorization(id) {
     method: 'post',
     url: `https://api.vimeo.com/oauth/authorize/client`,
     headers: {
-      "Authorization": "Basic " + btoa(`${VIMEO_ClIENT_ID}:${VIMEO_CLIENT_SECRET}`)
+      "Authorization": "Basic "+ btoa(`${VIMEO_ClIENT_ID}:${VIMEO_CLIENT_SECRET}`)
     },
     params: {
       "grant_type": "client_credentials"

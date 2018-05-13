@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import * as ChannelActions from '../../actions/channel';
 import ChannelThumb from '../ChannelThumb';
+import Loading from '../Loading';
+
 import style from './ChannelDetails.css';
 import VideoList from '../VideoList';
 
@@ -15,7 +17,7 @@ class ChannelDetails extends Component {
     render() {
         const { match: { params }, channel: {channel, loading, error }} = this.props;
         if(loading){
-            return "Loading";
+            return <Loading />;
         } else if(error){
             return "ERROR";
         } else if(channel){
@@ -25,7 +27,7 @@ class ChannelDetails extends Component {
                         <div className={style.image}>
                             <img src={channel.pictures.sizes[1].link} />
                         </div>
-                        <div className={style.details}>
+                        <div className={style.infoContainer}>
                             <h4 className={style.name}>{channel.name}</h4>
                             <p className={style.description}>{channel.description}</p>
                         </div>
@@ -54,7 +56,6 @@ const mapDispatchToProps = (dispatch) => {
         fetchChannel: (channelId)=>{
             dispatch(ChannelActions.fetchChannel(channelId))
                 .then((response) => {
-                    console.log('fetchChannel response', response);
                     !response.error 
                     ? dispatch(ChannelActions.fetchChannelSuccess(response.payload.data))
                     : dispatch(ChannelActions.fetchChannelFailure(response.error));

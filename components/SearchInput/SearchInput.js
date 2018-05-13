@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { push } from 'react-router-redux'
 import * as Actions from '../../actions/channel';
 import styles from './SearchInput.css';
+
+//Constants
+const PLACEHOLDER_TEXT = "Search for channels";
 
 class SearchInput extends Component {
     constructor(props) {
@@ -21,7 +24,8 @@ class SearchInput extends Component {
     onKeyUp(e){
         if (e.key === 'Enter' && this.props.fetchChannels) {
             this.props.fetchChannels(this.state.value);
-            //this.props.history.push(`/channels`);
+            this.setState({value: ""});
+            window.location.hash="#";
         }
     }
     render() {
@@ -32,7 +36,7 @@ class SearchInput extends Component {
                     onChange={this.onChange.bind(this)} 
                     onKeyUp={this.onKeyUp.bind(this)} 
                     value={this.state.value}
-                    placeholder={"Search for channels"}    
+                    placeholder={PLACEHOLDER_TEXT}    
                 />
             </div>
         );
@@ -50,7 +54,6 @@ const mapDispatchToProps = (dispatch) => {
                     query: query
                 }))
                 .then((response) => {
-                    console.log('response', response);
                     !response.error 
                     ? dispatch(Actions.fetchChannelsSuccess(response.payload.data))
                     : dispatch(Actions.fetchChannelsFailure(response.error));

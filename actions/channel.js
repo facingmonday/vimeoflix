@@ -10,7 +10,6 @@ export function fetchChannelsLoading() {
 }
 
 export function fetchChannelsSuccess(channels) {
-    console.log('fetchChannelsSuccess response', channels);
     return {
         type: ActionTypes.FETCH_CHANNELS_SUCCESS,
         payload: channels
@@ -18,7 +17,6 @@ export function fetchChannelsSuccess(channels) {
 }
 
 export function fetchChannelsFailure(response) {
-    console.log('fetchChannelsSuccess response', response);
     return {
         type: ActionTypes.FETCH_CHANNELS_FAILURE,
         payload: error

@@ -13,14 +13,15 @@ import style from './Main.css';
 
 class Main extends Component {
     render() {
-
         return (
             <div className={style.container}>
-                <div className={style.playerColumn}>
-                    <div>
+                
+                
+                <div className={style.leftColumn}>
+                    <div className={style.player}>
                         <VimeoPlayer />
                     </div>
-                    <div>
+                    <div className={style.results}>
                         <HashRouter>
                             <Switch>
                                 <Route exact path='/videos/:id' component={VideoDetails}/>
@@ -30,9 +31,11 @@ class Main extends Component {
                         </HashRouter>
                     </div>
                 </div>
-                <div className={style.playlistColumn} >
+               
+                <div className={style.rightColumn} >
                     <Playlist />
                 </div>
+                
             </div>
         );
     }

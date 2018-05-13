@@ -4,12 +4,19 @@
 
 .channelInfo{
     display: flex;
+    margin-left: 10px;
 }
 
 .image{
+    composes: globalText from global;
     flex: 30%;
 }
 
-.details {
-    flex: 70%
+.infoContainer{
+    composes: globalText from global;
+    composes: twoThirdsText from global;
+}
+
+.videoListHeader {
+    composes: globalText from global;
 }

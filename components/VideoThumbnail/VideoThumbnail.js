@@ -16,7 +16,7 @@ class VideoThumbnail extends Component {
     render() {
         const {video} = this.props;
         return (
-            <div onClick={this.onClick.bind(this)} className={styles.container} >
+            <div key={video.uri} onClick={this.onClick.bind(this)} className={styles.container} >
                 <img src={video.pictures.sizes[1].link} />
             </div>
         );

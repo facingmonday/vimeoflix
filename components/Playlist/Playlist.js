@@ -37,7 +37,9 @@ class Playlist extends Component {
     }
     renderVideoThumbnail(video){
         return (
+            <div key={video.uri}>
                 <VideoThumbnail video={video} onClick={this.playVideo}/>
+            </div>
         );
     }
     renderPlaylistControls(){
@@ -50,9 +52,11 @@ class Playlist extends Component {
     render() {
         if(this.props.playlist && this.props.playlist.length){
             return (
-                <div className={style.playlist}>
+                <div>
                     {this.renderPlaylistControls()}
-                    {this.props.playlist.map(this.renderVideoThumbnail.bind(this))}
+                    <div className={style.playlist}>
+                        {this.props.playlist.map(this.renderVideoThumbnail.bind(this))}
+                    </div>
                 </div>
             );
         } else {

@@ -1,10 +1,25 @@
 .container{
-    display: block;
+    display: flex;
 }
 
 .imageContainer{
-    display: inline-block;
+    flex: 30%;
 }
+
 .infoContainer{
-    display: inline-block;
+    composes: globalText from global;
+    composes: twoThirdsText from global;
+}
+
+.name {
+    composes: heading from global;
+}
+
+.controls{
+    display: flex;
+    justify-content: flex-start;
+}
+.button{
+    composes: button from global;
+    margin-right: 5px;
 }
