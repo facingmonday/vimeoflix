@@ -37,7 +37,6 @@ class VimeoPlayer extends Component {
     }
     componentDidUpdate(){
         const { video, loading, error} = this.props.playerModel;
-        console.log('video', video);
         if(!this.player){
             this.player = new Player('vimeo_player', {
                 id: video.uri.split("/videos/")[1],
